@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      
+      Scanner userInput = new Scanner(System.in);
+
+      double numberOne = userInput.nextDouble();
+      double numberTwo = userInput.nextDouble();
+      double inputEpsilon = userInput.nextDouble();
+      
+      double numberDifference = Math.abs(numberOne - numberTwo);
+      
+      String comparisonResult = "";
+      
+      if (numberDifference < 0.001) {
+         comparisonResult = "equal";
+      } else if (numberDifference < inputEpsilon) {
+         comparisonResult = "close enough";
+      } else if (numberDifference > inputEpsilon) {
+         comparisonResult = "not close";
+      }
+
+      System.out.println(comparisonResult);
+
+   }
+}
