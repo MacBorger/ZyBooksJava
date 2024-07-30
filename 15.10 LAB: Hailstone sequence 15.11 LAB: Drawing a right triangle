@@ -1,0 +1,26 @@
+import java.util.Scanner; 
+
+public class DrawRightTriangle {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+      
+        char triangleCharacter;
+        int triangleHeight;
+
+        System.out.println("Enter a character:");
+        triangleCharacter = userInput.next().charAt(0);   
+
+        System.out.println("Enter triangle height:");
+        triangleHeight = userInput.nextInt();
+
+        System.out.println();
+
+        for (int i = 1; i <= triangleHeight; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(triangleCharacter + " ");
+            }
+            System.out.println();
+        }
+    }
+}
