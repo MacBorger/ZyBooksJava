@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      
+      int speedLimit = userInput.nextInt();
+      int driverSpeed = userInput.nextInt();
+      int infractionSpeed = 0;
+      int ticketAmount = 0;
+
+      if (driverSpeed - speedLimit > 0) {
+         infractionSpeed = driverSpeed - speedLimit;
+         
+         if ((infractionSpeed >= 6) && (infractionSpeed <= 20)) {
+            ticketAmount = 75;
+         } 
+         
+         else if ((infractionSpeed >= 21) && (infractionSpeed <= 40)) {
+            ticketAmount = 150;
+         }
+         
+         else if (infractionSpeed > 40) {
+            ticketAmount = 300;
+         }
+         
+      } 
+      
+      else if (driverSpeed - speedLimit < 0) {
+         infractionSpeed = speedLimit - driverSpeed;
+         
+         if (infractionSpeed >= 10) {
+            ticketAmount = 50;
+         }
+      }
+
+      System.out.println(ticketAmount);
+
+   }
+}
