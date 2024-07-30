@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int num1 = userInput.nextInt();
+      int num2 = userInput.nextInt();
+      int num3 = userInput.nextInt();
+      int num4 = userInput.nextInt();
+      
+      int numOfOdd = 0;
+
+      if (num1 % 2 == 1) {
+         numOfOdd++;
+      } if (num2 % 2 == 1) {
+         numOfOdd++;
+      } if (num3 % 2 == 1) {
+         numOfOdd++;
+      } if (num4 % 2 == 1) {
+         numOfOdd++;
+      }
+
+      System.out.println(numOfOdd);
+
+   }
+}
