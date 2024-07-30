@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      String stringOne = userInput.next();
+      String stringTwo = userInput.next();
+      
+      int matchingCharacters = 0;
+
+      int smallerStringLength = stringOne.length();
+      if (stringOne.length() > stringTwo.length()) {
+         smallerStringLength = stringTwo.length();
+      }
+
+      for (int i = 0; i < smallerStringLength; i++) {
+         if (stringOne.charAt(i) == stringTwo.charAt(i)) {
+            matchingCharacters++;
+         }
+      }
+
+      if (matchingCharacters == 1) {
+         System.out.printf("%d character matches\n", matchingCharacters);
+      } else {
+         System.out.printf("%d characters match\n", matchingCharacters);
+      }
+
+   }
+}
