@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int largestNumber = Integer.MIN_VALUE;
+      int currentNumber;
+
+      while (true) {
+         
+         currentNumber = userInput.nextInt();
+         
+         if (currentNumber < 0) {
+            break;
+         }
+         
+         if (currentNumber > largestNumber) {
+            largestNumber = currentNumber;
+         }
+         
+      }
+      
+      System.out.println("Largest integer: " + largestNumber);
+
+   }
+}
