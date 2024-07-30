@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int triangleHeight = userInput.nextInt();
+
+      for (int i = 1; i <= triangleHeight; i++) {
+         
+         for (int j = 0; j < triangleHeight - i; j++) {
+            System.out.print("  ");
+         }
+         
+         for (int k = 0; k < i; k++) {
+            System.out.print("* ");
+         }
+         
+         System.out.println();
+         
+      }
+
+   }
+}
