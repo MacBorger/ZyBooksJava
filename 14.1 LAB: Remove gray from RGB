@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int userRed = userInput.nextInt();
+      int userGreen = userInput.nextInt();
+      int userBlue = userInput.nextInt();
+      int smallestValue = userRed;
+
+      int[] userValues = {userRed, userGreen, userBlue};
+
+      if (userGreen < smallestValue) {
+         smallestValue = userGreen;
+      } else if (userBlue < smallestValue) {
+         smallestValue = userBlue;
+      } else {
+         smallestValue = userRed;
+      }
+
+      for (int i = 0; i < userValues.length; ++i) {
+         userValues[i] = userValues[i] - smallestValue;
+      }
+
+      System.out.println(userValues[0] + " " + userValues[1] + " " + userValues[2]);
+
+   }
+}
