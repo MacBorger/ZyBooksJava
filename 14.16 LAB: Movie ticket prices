@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      String userString = userInput.next();
+      int userAge = userInput.nextInt();
+      
+      if (userAge < 4) {
+         System.out.println("free");
+      } else {
+         if (userString.equals("day")) {
+            System.out.println("$8");
+         } else if (userString.equals("night")) {
+            if ((userAge >= 4) && (userAge <= 16)) {
+               System.out.println("$12");
+            } else if ((userAge >= 17) && (userAge <= 54)) {
+               System.out.println("$15");
+            } else if (userAge >= 55) {
+               System.out.println("$13");
+            }
+            
+         }
+      }
+
+   }
+}
