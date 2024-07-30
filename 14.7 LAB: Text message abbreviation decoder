@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class TextMsgAbbreviation {
+   public static void main(String[] args) {
+      
+      Scanner userInput = new Scanner(System.in);
+
+      System.out.println("Input an abbreviation:");
+      String userText = userInput.next();
+      String outputMessage = "";
+      
+      if (userText.equals("LOL")) {
+         outputMessage = "laughing out loud";
+      } else if (userText.equals("IDK")) {
+         outputMessage = "I don't know";
+      } else if (userText.equals("BFF")) {
+         outputMessage = "best friends forever";
+      } else if (userText.equals("IMHO")) {
+         outputMessage = "in my humble opinion";
+      } else if (userText.equals("TMI")) {
+         outputMessage = "too much information";
+      } else {
+         outputMessage = "Unknown";
+      }
+   
+      System.out.println(outputMessage);
+
+   }
+}
