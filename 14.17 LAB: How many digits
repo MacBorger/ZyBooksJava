@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int userNumber = userInput.nextInt();
+      String userString = Integer.toString(userNumber);
+      int stringLength = userString.length();
+      
+      if (stringLength > 1) {
+         System.out.println(stringLength + " digits");
+      } else {
+         System.out.println(stringLength + " digit");
+      }
+
+   }
+}
