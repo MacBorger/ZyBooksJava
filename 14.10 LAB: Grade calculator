@@ -1,0 +1,77 @@
+import java.util.Scanner;
+
+public class ProgramLab {
+   public static void main(String[] args) {
+
+        final double HOMEWORK_MAX = 800.0;
+        final double QUIZZES_MAX = 400.0;
+        final double MIDTERM_MAX = 150.0;
+        final double FINAL_MAX = 200.0;
+        
+        double homeworkGraded;
+        double quizzesGraded; 
+        double midtermGraded; 
+        double finalGraded;
+        double courseAverage = 0.0;
+        
+        Scanner userInput = new Scanner(System.in);
+
+        String studentStatus = userInput.next();
+        double homeworkScore = userInput.nextDouble();
+        double quizzesScore = userInput.nextDouble();
+        double midtermScore = userInput.nextDouble();
+        double finalScore = userInput.nextDouble();
+        
+        if (!studentStatus.equals("UG") && !studentStatus.equals("G") && !studentStatus.equals("DL")) {
+            System.out.println("Error: student status must be UG, G or DL");
+        } else {
+            if (homeworkScore > HOMEWORK_MAX) {
+               homeworkScore = HOMEWORK_MAX;   
+            }
+            if (quizzesScore > QUIZZES_MAX) {
+               quizzesScore = QUIZZES_MAX;
+            }
+            if (midtermScore > MIDTERM_MAX) {
+               midtermScore = MIDTERM_MAX;
+            }
+            if (finalScore > FINAL_MAX) {
+               finalScore = FINAL_MAX;
+            }
+            
+            homeworkGraded = (homeworkScore / HOMEWORK_MAX) * 100;
+            quizzesGraded = (quizzesScore / QUIZZES_MAX) * 100;
+            midtermGraded = (midtermScore / MIDTERM_MAX) * 100;
+            finalGraded = (finalScore / FINAL_MAX) * 100;
+            
+            System.out.printf("Homework: %.1f%%\n", homeworkGraded); 
+            System.out.printf("Quizzes: %.1f%%\n", quizzesGraded); 
+            System.out.printf("Midterm: %.1f%%\n", midtermGraded); 
+            System.out.printf("Final Exam: %.1f%%\n", finalGraded); 
+
+            if (studentStatus.equals("UG")) {
+               courseAverage = (homeworkGraded * 0.2) + (quizzesGraded * 0.2) + (midtermGraded * 0.3) + (finalGraded * 0.3);
+            } else if (studentStatus.equals("G")) {
+               courseAverage = (homeworkGraded * 0.15) + (quizzesGraded * 0.05) + (midtermGraded * 0.35) + (finalGraded * 0.45); 
+            } else if (studentStatus.equals("DL")) {
+               courseAverage = (homeworkGraded * 0.05) + (quizzesGraded * 0.05) + (midtermGraded * 0.40) + (finalGraded * 0.50);
+            }
+            
+            System.out.printf("%s average: %.1f%%\n", studentStatus, courseAverage); 
+
+            char grade;
+            if (courseAverage >= 90.0) {
+                grade = 'A';
+            } else if (courseAverage >= 80.0) {
+                grade = 'B';
+            } else if (courseAverage >= 70.0) {
+                grade = 'C';
+            } else if (courseAverage >= 60.0) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+            
+            System.out.printf("Course grade: %c\n", grade);
+        }
+    }
+}
