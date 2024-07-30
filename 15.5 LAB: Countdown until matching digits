@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int userNumber = userInput.nextInt();
+
+      if ((userNumber < 11) || (userNumber > 99)) {
+         System.out.println("Input must be 11-99");
+      } else {
+         while (true) {
+            System.out.print(userNumber + " ");
+            int numberTens = userNumber / 10;
+            int numberOnes = userNumber % 10;
+            if (numberTens == numberOnes) {
+               break;
+            }
+            userNumber--;
+         }
+         System.out.println();
+      }
+
+   }
+}
