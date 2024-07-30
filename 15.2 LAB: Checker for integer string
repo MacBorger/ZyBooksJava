@@ -1,0 +1,25 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+      
+      Scanner userInput = new Scanner(System.in);
+      String userString = userInput.next();
+      
+      boolean isDigit = true;
+
+      for (int i = 0; i < userString.length(); i++) {
+         if (!Character.isDigit(userString.charAt(i))) {
+            isDigit = false;
+            break;
+         }
+      }
+
+      if (isDigit) {
+         System.out.println("Yes");
+      } else {
+         System.out.println("No");
+      }
+
+   }
+}
