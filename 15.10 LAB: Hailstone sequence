@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int userNumber = userInput.nextInt();
+      int iterationNumber = 1;
+
+      System.out.print(userNumber + "\t");
+
+      while (userNumber != 1) {
+         
+         if (iterationNumber % 5 == 0) {
+            System.out.println();
+         }
+         
+         if (userNumber % 2 == 0) {
+            userNumber = userNumber / 2;
+         }
+         
+         else if (userNumber % 2 == 1) {
+            userNumber = (userNumber * 3) + 1;
+         }
+         
+         System.out.print(userNumber + "\t");
+         
+         iterationNumber++;
+      }
+
+      System.out.println();
+
+   }
+}
