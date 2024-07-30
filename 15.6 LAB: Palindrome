@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      String userString = userInput.nextLine();
+      String cleanedString = userString.replaceAll(" ", "");
+      String reversedString = new StringBuilder(cleanedString).reverse().toString();
+      
+      if (cleanedString.equalsIgnoreCase(reversedString)) {
+         System.out.println("palindrome: " + userString);
+      }
+      else {
+         System.out.println("not a palindrome: " + userString);
+      }
+
+   }
+}
