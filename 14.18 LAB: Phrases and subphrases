@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      String phraseOne = userInput.nextLine();
+      String phraseTwo = userInput.nextLine();
+
+      if (phraseOne.equals(phraseTwo)) {
+         System.out.println("Both phrases match");
+      }
+      
+      else if (phraseOne.contains(phraseTwo)) {
+         System.out.println(phraseTwo + " is found within " + phraseOne); 
+      }
+      
+      else if (phraseTwo.contains(phraseOne)) {
+         System.out.println(phraseOne + " is found within " + phraseTwo);
+      }
+      
+      else {
+         System.out.println("No matches");   
+      }
+ 
+   }
+}
