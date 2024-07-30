@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class TextMsgDecoder {
+   public static void main(String[] args) {
+      
+      Scanner userInput = new Scanner(System.in);
+
+      System.out.println("Enter text:");
+      String userMessage = userInput.nextLine();
+      
+      System.out.println("You entered: " + userMessage);
+
+      String[] abbreviationArray = {"BFF", "IDK", "JK", "TMI", "TTYL"};
+      String[] meaningArray = {"best friend forever",
+                             "I don't know", 
+                             "just kidding", 
+                             "too much information", 
+                             "talk to you later"};
+                             
+      for (int i = 0; i < abbreviationArray.length; i++) {
+         if (userMessage.indexOf(abbreviationArray[i]) != -1) {
+            System.out.println(abbreviationArray[i] + ": " + meaningArray[i]);
+         }   
+      }
+
+   }
+}
