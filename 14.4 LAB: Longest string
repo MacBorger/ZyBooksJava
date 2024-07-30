@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      
+      Scanner userInput = new Scanner(System.in);
+      
+      String string1 = userInput.next();
+      String string2 = userInput.next();
+      
+      int length1 = string1.length();
+      int length2 = string2.length();
+
+      if (length1 > length2) {
+         System.out.println(string1 +" is longer than " + string2);
+      } else if (length2 > length1) {
+         System.out.println(string2 +" is longer than " + string1);   
+      } else {
+         System.out.println(string1 + " and " + string2 + " have the same length");
+      }
+
+   }
+}
