@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class LabProgram {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        int userStrokes = userInput.nextInt();
+        int userPar = userInput.nextInt();
+
+        if (userPar != 3 && userPar != 4 && userPar != 5) {
+            System.out.printf("Par %s in %s strokes is Error\n", userPar, userStrokes);
+        } else {
+            if (userStrokes == userPar - 2) {
+                System.out.printf("Par %s in %s strokes is Eagle\n", userPar, userStrokes);
+            } else if (userStrokes == userPar - 1) {
+                System.out.printf("Par %s in %s strokes is Birdie\n", userPar, userStrokes);
+            } else if (userStrokes == userPar) {
+                System.out.printf("Par %s in %s strokes is Par\n", userPar, userStrokes);
+            } else if (userStrokes == userPar + 1) {
+                System.out.printf("Par %s in %s strokes is Bogey\n", userPar, userStrokes);
+            } else {
+                System.out.printf("Par %s in %s strokes is Error\n", userPar, userStrokes);
+
+            }
+        }
+    }
+}
