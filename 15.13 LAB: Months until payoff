@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      double loanAmount = userInput.nextDouble();
+      double paymentAmount = userInput.nextDouble();
+      double interestRate = userInput.nextDouble();
+
+      int numberOfPayments = 0;
+
+      while (loanAmount > 0) {
+         loanAmount = loanAmount + (loanAmount * interestRate);
+         loanAmount = loanAmount - paymentAmount;
+         numberOfPayments++;
+      }
+
+      if (numberOfPayments == 1) {
+         System.out.println(numberOfPayments + " payment");
+      } else {
+         System.out.println(numberOfPayments + " payments");
+      }
+
+   }
+}
