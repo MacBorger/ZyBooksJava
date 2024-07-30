@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class LabProgram {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        boolean solutionFound = false;
+
+        // First Equation
+        int variableX1 = userInput.nextInt();
+        int variableY1 = userInput.nextInt();
+        int equationAnswer1 = userInput.nextInt();
+
+        // Second Equation
+        int variableX2 = userInput.nextInt();
+        int variableY2 = userInput.nextInt();
+        int equationAnswer2 = userInput.nextInt();
+
+        for (int x = -10; x <= 10; x++) {
+            for (int y = -10; y <= 10; y++) {
+                if ((variableX1 * x + variableY1 * y == equationAnswer1) 
+                && (variableX2 * x + variableY2 * y == equationAnswer2)) {
+                    System.out.println("x = " + x + ", " + "y = " + y);
+                    solutionFound = true;
+                    break;
+                }
+            }
+            if (solutionFound) {
+                break;  
+            }
+        }
+
+        if (!solutionFound) {
+            System.out.println("There is no solution");
+        }
+
+    }
+}
