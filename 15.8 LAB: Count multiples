@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int lowerBound = userInput.nextInt();
+      int upperBound = userInput.nextInt();
+      int userMultiple = userInput.nextInt();
+
+      System.out.print("Multiples of " + userMultiple + ": ");
+
+      for (int i = lowerBound; i < upperBound; i++) {
+         if (i % userMultiple == 0) {
+            System.out.print(i + ",");
+         }
+      }
+
+      System.out.println();
+
+   }
+}
