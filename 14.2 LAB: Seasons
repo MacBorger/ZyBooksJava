@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class LabProgram {
+
+    public static void main(String[] args) {
+        Scanner userInput = new Scanner(System.in);
+
+        String inputMonth = userInput.next();
+        int inputDay = userInput.nextInt();
+
+        String[] namesOfMonth = {"January", "February", "March", "April",
+                                 "May", "June", "July", "August", "September",
+                                 "October", "November", "December"};
+        int[] daysOfMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        int userMonthIndex = -1;
+        for (int i = 0; i < namesOfMonth.length; ++i) {
+            if (namesOfMonth[i].equalsIgnoreCase(inputMonth)) {
+                userMonthIndex = i;
+                break;
+            }
+        }
+
+        if (userMonthIndex == -1 || inputDay < 1 || inputDay > daysOfMonth[userMonthIndex]) {
+            System.out.println("Invalid");
+        } else {
+            String outputSeason = determineSeason(inputMonth, inputDay);
+            System.out.println(outputSeason);
+        }
+    }
+
+    public static String determineSeason(String month, int day) {
+        switch (month.toLowerCase()) {
+            case "march":
+                return (day >= 20) ? "Spring" : "Winter";
+            case "april":
+            case "may":
+                return "Spring";
+            case "june":
+                return (day <= 20) ? "Spring" : "Summer";
+            case "july":
+            case "august":
+                return "Summer";
+            case "september":
+                return (day <= 21) ? "Summer" : "Autumn";
+            case "october":
+            case "november":
+                return "Autumn";
+            case "december":
+                return (day <= 20) ? "Autumn" : "Winter";
+            case "january":
+            case "february":
+                return "Winter";
+            default:
+                return "Winter";
+
+        }
+    }
+}
