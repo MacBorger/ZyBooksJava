@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static double jiffiesToSeconds(double userJiffie) {
+
+      double userSeconds = userJiffie * 0.01;
+      return userSeconds;
+
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      double userJiffie = userInput.nextDouble();
+
+      double userSeconds = jiffiesToSeconds(userJiffie);
+      System.out.printf("%.3f\n", userSeconds);
+
+   }
+}
