@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   
+   public static int calcNumCharacters(String userString, char userCharacter) {
+   
+      int characterCount = 0;
+
+      for (int i = 0; i < userString.length(); i++) {
+         if (userString.charAt(i) == userCharacter) {
+            characterCount++;
+         }
+      }
+
+      return characterCount++;
+   
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      char userCharacter = userInput.next().charAt(0);
+      String userString = userInput.next();
+
+      int numberOfCharacters = calcNumCharacters(userString, userCharacter);
+
+      if (numberOfCharacters == 1) {
+         System.out.printf("%d %c\n", numberOfCharacters, userCharacter);
+      } else {
+         System.out.printf("%d %c's\n", numberOfCharacters, userCharacter);
+      }
+
+   }
+}
