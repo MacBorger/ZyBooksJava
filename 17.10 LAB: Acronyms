@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   
+   public static String createAcronym(String userPhrase) {
+
+      StringBuilder resultAcronym = new StringBuilder();
+      String[] individualWords = userPhrase.split(" "); 
+
+      for (int i = 0; i < individualWords.length; i++) {
+         String givenWord = individualWords[i];
+         char currentCharacter = givenWord.charAt(0);
+         if (Character.isUpperCase(currentCharacter)) {
+            resultAcronym.append(currentCharacter);
+            resultAcronym.append(".");
+         }
+      }
+   
+      String finalAcronym = resultAcronym.toString();
+      return finalAcronym;
+   
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      String userPhrase = userInput.nextLine();
+
+      String resultAcronym = createAcronym(userPhrase);
+
+      System.out.println(resultAcronym);
+
+   }
+}
