@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static double drivingCost(double milesPerGallon, double dollarsPerGallon, double milesDriven) {
+
+      double costPerMile = dollarsPerGallon / milesPerGallon;
+      double totalDrivingCost = costPerMile * milesDriven;
+      return totalDrivingCost;
+
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      double milesPerGallon = userInput.nextDouble();
+      double dollarsPerGallon = userInput.nextDouble();
+
+      double tenMiles = drivingCost(milesPerGallon, dollarsPerGallon, 10);
+      double fiftyMiles = drivingCost(milesPerGallon, dollarsPerGallon, 50);
+      double fourHundredMiles = drivingCost(milesPerGallon, dollarsPerGallon, 400);
+
+      System.out.printf("%.2f %.2f %.2f\n", tenMiles, fiftyMiles, fourHundredMiles);
+
+   }
+}
