@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class LabProgram {
+
+    public static void readSentences(Scanner userInput, String[] sentenceOneWords, String[] sentenceTwoWords, int wordCount) {
+
+        String rawSentenceOne = userInput.nextLine();
+        String[] wordsOne = rawSentenceOne.split(" ");
+        System.arraycopy(wordsOne, 0, sentenceOneWords, 0, wordsOne.length);
+
+        String rawSentenceTwo = userInput.nextLine();
+        String[] wordsTwo = rawSentenceTwo.split(" ");
+        System.arraycopy(wordsTwo, 0, sentenceTwoWords, 0, wordsTwo.length);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        int wordCount = userInput.nextInt();
+        userInput.nextLine();
+
+        String[] sentenceOneWords = new String[wordCount];
+        String[] sentenceTwoWords = new String[wordCount];
+
+        readSentences(userInput, sentenceOneWords, sentenceTwoWords, wordCount);
+
+        for (int i = 0; i < wordCount; i++) {
+            if (!sentenceOneWords[i].equals(sentenceTwoWords[i])) {
+                System.out.println(sentenceOneWords[i] + " " + sentenceTwoWords[i]);
+
+            }
+        }
+    }
+}
