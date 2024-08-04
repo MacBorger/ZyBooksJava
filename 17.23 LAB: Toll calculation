@@ -1,0 +1,52 @@
+public class LabProgram {
+   
+   public static double calcToll(int tollHour, boolean isMorning, boolean isWeekend) {
+   
+      double tollAmount;
+   
+      // Converting Meridiem Time to Military Time
+
+      if (tollHour == 12) {
+         tollHour = 0;
+      }
+      if (!isMorning) {
+         tollHour += 12;
+      }
+
+      // Calculating Toll Amount After Time Conversion
+
+      if (isWeekend) { // Weekend Tolls
+         if (tollHour < 7) {
+            tollAmount = 6.05;
+         } else if (tollHour < 20) {
+            tollAmount = 7.15;
+         } else {
+            tollAmount = 6.10;
+         }
+   
+      } else { // Weekday Tolls
+         if (tollHour < 7) {
+            tollAmount = 6.15;
+         } else if (tollHour < 10) {
+            tollAmount = 7.95;
+         } else if (tollHour < 15) {
+            tollAmount = 6.90;
+         } else if (tollHour < 20) {
+            tollAmount = 8.95;
+         } else {
+            tollAmount = 6.40;
+         }
+      }
+
+      return tollAmount; 
+   }
+
+   public static void main(String[] args) {
+
+      System.out.println(calcToll(8, true, false));
+      System.out.println(calcToll(1, false, false));
+      System.out.println(calcToll(3, false, true));
+      System.out.println(calcToll(5, true, true));
+
+   }
+}
