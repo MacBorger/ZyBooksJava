@@ -1,0 +1,45 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   
+   public static String intToReverseBinary(int integerValue) {
+   
+      StringBuilder binaryString = new StringBuilder();
+
+      int binaryConversion;
+
+      while (integerValue > 0) {
+         binaryConversion = integerValue % 2;
+         binaryString.append(binaryConversion);
+         integerValue = integerValue / 2;
+      }
+   
+      String convertedString = binaryString.toString();
+
+      return convertedString;
+   
+   }
+   
+   public static String stringReverse(String inputString) {
+   
+      StringBuilder reversedString = new StringBuilder(inputString);
+
+      reversedString = reversedString.reverse();
+      String convertedString = reversedString.toString();
+
+      return convertedString;
+   
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int userNumber = userInput.nextInt();
+
+      String binaryString = intToReverseBinary(userNumber);
+      String reversedString = stringReverse(binaryString);
+
+      System.out.println(reversedString);
+
+   }
+}
