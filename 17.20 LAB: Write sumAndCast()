@@ -1,0 +1,19 @@
+public class LabProgram {
+   
+   public static int sumAndCast(double doubleOne, double doubleTwo){
+
+      int intOne = (int) doubleOne;
+      int intTwo = (int) doubleTwo;
+      int intSum = intOne + intTwo;
+
+      return intSum;
+
+   }
+   
+   public static void main(String[] args) {
+
+      System.out.println(sumAndCast(14.2, 19.9));
+      System.out.println(sumAndCast(2.5, 3.1));
+
+   }
+}
