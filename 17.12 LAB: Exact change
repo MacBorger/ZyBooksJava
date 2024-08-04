@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class LabProgram {
+
+    public static void exactChange(int userTotal, int[] coinVals) {
+        int[] typesOfCoins = {25, 10, 5, 1}; // quarters, dimes, nickels, pennies
+
+        if (userTotal <= 0) {
+            return;
+        }
+
+        for (int i = 0; i < typesOfCoins.length; i++) {
+            coinVals[3 - i] = userTotal / typesOfCoins[i];
+            userTotal = userTotal % typesOfCoins[i];
+
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+        int changeAmount = userInput.nextInt();
+        int[] coinVals = new int[4]; // pennies, nickels, dimes, quarters
+
+        if (changeAmount <= 0) {
+            System.out.println("no change");
+        } else {
+            exactChange(changeAmount, coinVals);
+
+            if (coinVals[0] > 0) {
+                if (coinVals[0] == 1) {
+                    System.out.printf("%d penny\n", coinVals[0]);
+                } else {
+                    System.out.printf("%d pennies\n", coinVals[0]);
+                }
+            }
+
+            if (coinVals[1] > 0) {
+                if (coinVals[1] == 1) {
+                    System.out.printf("%d nickel\n", coinVals[1]);
+                } else {
+                    System.out.printf("%d nickels\n", coinVals[1]);
+                }
+            }
+
+            if (coinVals[2] > 0) {
+                if (coinVals[2] == 1) {
+                    System.out.printf("%d dime\n", coinVals[2]);
+                } else {
+                    System.out.printf("%d dimes\n", coinVals[2]);
+                }
+            }
+
+            if (coinVals[3] > 0) {
+                if (coinVals[3] == 1) {
+                    System.out.printf("%d quarter\n", coinVals[3]);
+                } else {
+                    System.out.printf("%d quarters\n", coinVals[3]);
+                }
+            }
+
+        }
+    }
+}
