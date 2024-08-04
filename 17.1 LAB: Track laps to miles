@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   
+   public static double lapsToMiles(double userLaps) {
+
+      double userMiles = userLaps * 0.25;
+      return userMiles;
+
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      double userLaps = userInput.nextDouble();
+
+      double userMiles = lapsToMiles(userLaps);
+      System.out.printf("%.2f\n",userMiles);
+  
+   }
+}
