@@ -1,0 +1,30 @@
+import java.util.*;
+public class LabProgram {
+	
+	public static int[] reverse(int[] inputArray) {
+
+      int[] temporaryArray = new int[inputArray.length];
+
+      for (int i = 0; i < inputArray.length; i++) {
+         temporaryArray[i] = inputArray[inputArray.length - 1 - i];
+      }
+
+      return temporaryArray;
+
+	}
+   
+	public static void main(String[] args) {
+	 
+	   int i = 0;
+		int [] integerArray = {2, 4, 6};	
+		int [] reversedArray = reverse(integerArray);
+
+		System.out.print("Reversed array: [");
+		for (i = 0; i < reversedArray.length -1; i++) {
+			System.out.print(reversedArray[i] + ", ");
+		}
+
+		System.out.println(reversedArray[i] + "]");
+
+	}
+}
