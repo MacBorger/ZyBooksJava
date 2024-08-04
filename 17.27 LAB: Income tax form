@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   
+   public static int calcAGI(int userWage, int userInterest, int userUnemployment) {
+
+      int correctedWage = Math.abs(userWage);
+      int correctedInterest = Math.abs(userInterest);
+      int correctedUnemployment = Math.abs(userUnemployment);
+
+      int resultAGI = correctedWage + correctedInterest + correctedUnemployment;
+
+      return resultAGI;
+
+   }
+   
+   public static int getDeduction(int userStatus) {
+
+      int resultDeduction;
+
+      if (userStatus == 0) {
+         resultDeduction = 6000;
+      } else if (userStatus == 1) {
+         resultDeduction = 12000;
+      } else if (userStatus == 2) {
+         resultDeduction = 24000;
+      } else {
+         resultDeduction = 6000;
+      }
+
+      return resultDeduction;  
+
+   }
+   
+   public static int calcTaxable(int resultAGI, int resultDeduction) {
+
+      int resultTaxable;
+
+      resultTaxable = resultAGI - resultDeduction;
+
+      if (resultTaxable < 0) {
+         resultTaxable = 0;
+      }
+
+      return resultTaxable;
+
+   }  
+   
+
+   public static int calcTax(int userStatus, int resultTaxable) {
+
+      double resultFederal;
+
+      if ((userStatus == 0) || (userStatus == 1)) {
+         
+         if (resultTaxable <= 10000) {
+            resultFederal = 0.10 * resultTaxable;
+         } else if (resultTaxable <= 40000) {
+            resultFederal = 1000 + (0.12 * (resultTaxable - 10000));
+         } else if (resultTaxable <= 85000) {
+            resultFederal = 4600 + (0.22 * (resultTaxable - 40000));
+         } else {
+            resultFederal = 14500 + (0.24 * (resultTaxable - 85000));
+         }
+         
+      } else {
+         
+         if (resultTaxable <= 20000) {
+            resultFederal = 0.10 * resultTaxable;
+         } else if (resultTaxable <= 80000) {
+            resultFederal = 2000 + (0.12 * (resultTaxable - 20000));
+         } else {
+            resultFederal = 9200 + (0.22 * (resultTaxable - 80000));
+         }
+         
+      }
+
+      return (int) resultFederal;
+
+   }   
+   
+   
+   public static int calcTaxDue(int resultFederal, int userWithheld) {
+
+      int resultDue;
+
+      if (userWithheld < 0) {
+         userWithheld = 0;
+      }
+
+      resultDue = resultFederal - userWithheld;
+
+      return resultDue;
+
+   }
+   
+   public static void main(String [] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int userWage = 0;
+      int userInterest = 0;
+      int userUnemployment = 0;
+      int userStatus = -1;
+      int userWithheld = 0; 
+
+      userWage = userInput.nextInt();
+      userInterest = userInput.nextInt();
+      userUnemployment = userInput.nextInt();
+      userStatus = userInput.nextInt();
+      userWithheld = userInput.nextInt();
+
+      int resultAGI = calcAGI(userWage, userInterest, userUnemployment);
+      System.out.printf("AGI: $%,d\n", resultAGI);
+
+      int resultDeduction = getDeduction(userStatus);
+      System.out.printf("Deduction: $%,d\n", resultDeduction);
+
+      int resultTaxable = calcTaxable(resultAGI, resultDeduction);
+      System.out.printf("Taxable income: $%,d\n", resultTaxable);
+
+      int resultFederal = calcTax(userStatus, resultTaxable);
+      System.out.printf("Federal tax: $%,d\n", resultFederal);
+
+      int resultDue = calcTaxDue(resultFederal, userWithheld); 
+      System.out.printf("Tax due: $%,d\n", resultDue);
+
+   }
+}
