@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class LabProgram {
+
+   public static int countEvens(int num1, int num2, int num3, int num4, int num5) {
+
+      int numOfEvens = 0;
+      int[] numArray = {num1, num2, num3, num4, num5};
+
+      for (int i = 0; i < 5; i++) {
+         if (numArray[i] % 2 == 0) {
+            numOfEvens++;
+         }
+      }
+
+      return numOfEvens;
+
+   }
+	
+	public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int num1;
+      int num2;
+      int num3;
+      int num4;
+      int num5;
+
+      num1 = userInput.nextInt();
+      num2 = userInput.nextInt();
+      num3 = userInput.nextInt();
+      num4 = userInput.nextInt();
+      num5 = userInput.nextInt();
+
+		int result = countEvens(num1, num2, num3, num4, num5);
+		System.out.println("Total evens: " + result);
+
+	}
+}
