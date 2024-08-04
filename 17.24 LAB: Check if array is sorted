@@ -1,0 +1,38 @@
+public class LabProgram {
+   
+   public static boolean inOrder(int [] inputArray) {
+
+      for (int i = 0; i < inputArray.length - 1; i++) {
+         if (inputArray[i] < inputArray[i + 1]) {
+            return false;
+         }
+      }
+
+      return true;
+
+   }
+   
+   public static void main(String[] args) {
+
+      // Out-Of-Order Test Case
+
+      int [] numArrayOne = {5, 6, 7, 8, 3};
+      
+      if (inOrder(numArrayOne)){
+         System.out.println("In descending order");
+      } else {
+         System.out.println("Not in order");
+      }
+
+      // In-Order Test Case
+
+      int [] numArrayTwo = {10, 8, 7, 6, 5};
+      
+      if (inOrder(numArrayTwo)){
+         System.out.println("In descending order");
+      } else {
+         System.out.println("Not in order");
+
+      }
+   }
+}
