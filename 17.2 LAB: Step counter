@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   
+   public static int feetToSteps(double userFeet) {
+      int userSteps = (int) (userFeet / 2.5);
+      return userSteps;
+
+   }
+   
+   public static void main(String[] args) {
+      Scanner userInput = new Scanner(System.in);
+      double userFeet = userInput.nextDouble();
+
+      int userSteps = feetToSteps(userFeet);
+      System.out.println(userSteps);
+
+   }
+}
