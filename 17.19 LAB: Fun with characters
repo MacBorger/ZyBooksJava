@@ -1,0 +1,27 @@
+public class LabProgram {
+   
+   public static String checkCharacter(String inputString, int index){  
+
+      char givenCharacter = inputString.charAt(index);
+
+      if (Character.isLetter(givenCharacter)) {
+         return "Letter: '" + givenCharacter + "'";
+      } else if (Character.isDigit(givenCharacter)) {
+         return "Digit: '" + givenCharacter + "'";   
+      } else if (Character.isWhitespace(givenCharacter)) {
+         return "Whitespace: '" + givenCharacter + "'";   
+      } else {
+         return "Unknown: '" + givenCharacter + "'";
+      }
+      
+   }
+   
+	public static void main(String[] args) {
+
+		System.out.println(checkCharacter("happy birthday", 2));
+		System.out.println(checkCharacter("happy birthday", 5));
+		System.out.println(checkCharacter("happy birthday 2 you", 15));
+		System.out.println(checkCharacter("happy birthday!", 14));
+
+	}
+}
