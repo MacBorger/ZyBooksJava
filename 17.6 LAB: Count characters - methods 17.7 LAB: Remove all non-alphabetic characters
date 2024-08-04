@@ -1,0 +1,33 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   
+   public static String removeNonAlpha(String userString) {
+   
+      StringBuilder resultString = new StringBuilder();
+
+      char currentCharacter;
+   
+      for (int i = 0; i < userString.length(); i++) {
+         currentCharacter = userString.charAt(i);
+         if (Character.isAlphabetic(currentCharacter)) {
+            resultString.append(currentCharacter);
+         }
+      }
+
+      return resultString.toString();
+
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      String userString = userInput.nextLine();
+
+      String filteredString = removeNonAlpha(userString);
+
+      System.out.println(filteredString);
+
+   }
+}
