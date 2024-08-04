@@ -1,0 +1,60 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   
+   public static boolean isArrayMult10(int[] arrayValues, int arraySize) {
+
+      boolean isMultiple = false;
+
+      for (int i = 0; i < arraySize; i++) {
+         if (arrayValues[i] % 10 != 0) {
+            isMultiple = false;
+            break;
+         } else {
+            isMultiple = true;
+         }
+      }
+
+      return isMultiple;
+
+   }
+   
+   public static boolean isArrayNoMult10(int[] arrayValues, int arraySize) {
+
+      boolean notMultiple = false;
+
+      for (int i = 0; i < arraySize; i++) {
+         if (arrayValues[i] % 10 == 0) {
+            notMultiple = false;
+            break;
+         } else {
+            notMultiple = true;
+         }
+      }
+   
+      return notMultiple;   
+
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int arraySize = userInput.nextInt();
+      int[] arrayValues = new int[arraySize];
+
+      for (int i = 0; i < arraySize; i++) {
+         int newNumber = userInput.nextInt();
+         arrayValues[i] = newNumber;
+      } 
+
+      if (isArrayMult10(arrayValues, arraySize)) {
+         System.out.println("all multiples of 10");
+      } else if (isArrayNoMult10(arrayValues, arraySize)) {
+         System.out.println("no multiples of 10");
+      } else {
+         System.out.println("mixed values");
+      }
+
+   }
+}
