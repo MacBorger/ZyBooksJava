@@ -1,0 +1,42 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+
+   public static int daysInFeb(int userYear) {
+
+      int numberOfDays;
+      boolean leapYear;
+
+      if (userYear % 4 == 0) {
+         if (userYear % 400 == 0) {
+            leapYear = true;
+         } else if (userYear % 100 == 0) {
+            leapYear = false;
+         } else {
+            leapYear = true;
+         }
+      } else {
+         leapYear = false;
+      }
+
+      if (leapYear) {
+         numberOfDays = 29;
+      } else {
+         numberOfDays = 28;
+         }
+
+      return numberOfDays;
+
+   }
+
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int userYear = userInput.nextInt();
+      int numberOfDays = daysInFeb(userYear);
+
+      System.out.printf("%d has %d days in February.\n", userYear, numberOfDays);
+
+   }
+}
