@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class LabProgram {
+
+   public static void getUserValues(int[] myArr, int arrSize, Scanner userInput) {
+   
+      for (int i = 0; i < arrSize; i++) {
+         myArr[i] = userInput.nextInt();
+      }
+   }
+   
+   public static int intsLessThanOrEqualToThreshold(int[] userValues, int userValsSize, int upperThreshold, int[] resValues) {
+   
+      int count = 0;
+
+      for (int i = 0; i < userValsSize; i++) {
+         if (userValues[i] <= upperThreshold) {
+            resValues[count] = userValues[i];
+            count++;
+         }
+      }
+   
+      return count;
+   
+   }
+   
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int[] userValues = new int[20];
+      int[] resValues = new int[20];
+
+      int upperThreshold;
+      int numInVals;
+      int numResVals;
+      int i;
+
+      numInVals = userInput.nextInt();
+      getUserValues(userValues, numInVals, userInput);
+
+      upperThreshold = userInput.nextInt();
+      numResVals = intsLessThanOrEqualToThreshold(userValues, numInVals, upperThreshold, resValues);
+
+      for (i = 0; i < numResVals; ++i) {
+         System.out.print(resValues[i] + " ");
+      }
+
+      System.out.println();
+
+   }
+}
