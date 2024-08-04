@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static int maxMagnitude(int valueOne, int valueTwo, int valueThree) {
+
+      int absOne = Math.abs(valueOne);
+      int absTwo = Math.abs(valueTwo);
+      int absThree = Math.abs(valueThree);
+
+      int maxMagnitude = absOne;
+
+      if (absTwo > maxMagnitude) {
+         maxMagnitude = valueTwo;
+      } 
+
+      if (absThree > maxMagnitude) {
+         maxMagnitude = valueThree;
+      }
+      
+      if (maxMagnitude == absOne) {
+         maxMagnitude = valueOne;
+      }
+
+      return maxMagnitude;
+
+   }
+
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int valueOne = userInput.nextInt();
+      int valueTwo = userInput.nextInt();
+      int valueThree = userInput.nextInt();
+
+      System.out.println(maxMagnitude(valueOne, valueTwo, valueThree));
+
+   }
+}
