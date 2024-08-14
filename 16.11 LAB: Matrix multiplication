@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int lengthOfMatrix = userInput.nextInt();
+
+      int[] matrixOne = new int[lengthOfMatrix];
+      int[][] matrixTwo = new int[lengthOfMatrix][lengthOfMatrix];
+      int[] matrixFinal = new int[lengthOfMatrix];
+
+      // Append Values for MatrixOne
+
+      for (int i = 0; i < lengthOfMatrix; i++) {
+         matrixOne[i] = userInput.nextInt();
+      }
+
+      // Append Values for MatrixTwo
+      // "matrixTwo[0][0], matrixTwo[0][1]" -> Outer
+      // "matrixTwo[1][0], matrixTwo[1][1]" -> Inner
+
+      for (int i = 0; i < lengthOfMatrix; i++) {
+         for (int j = 0; j < lengthOfMatrix; j++) {
+            matrixTwo[i][j] = userInput.nextInt();
+         }
+      }
+
+      // Append Values for FinalMatrix
+
+      for (int i = 0; i < lengthOfMatrix; i++) {
+         matrixFinal[i] = 0;
+         for (int j = 0; j < lengthOfMatrix; j++) {
+            matrixFinal[i] += matrixOne[j] * matrixTwo[j][i];
+         }
+      }
+
+      for (int i = 0; i < matrixFinal.length; i++) {
+         System.out.print(matrixFinal[i] + " ");
+      }
+      System.out.println(); 
+   }
+}
