@@ -1,0 +1,31 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int arrayLength = userInput.nextInt();
+
+      int[] listOne = new int[arrayLength];   // List A
+      int[] listTwo = new int[arrayLength];   // List B
+
+      userInput.nextLine();
+      for (int i = 0; i < arrayLength; i++) {
+         listOne[i] = userInput.nextInt();
+      }
+
+      userInput.nextLine();
+      for (int i = 0; i < arrayLength; i++) {
+         listTwo[i] = userInput.nextInt();
+      }
+
+      int arrayProduct = 0;
+      for (int i = 0; i < arrayLength; i++) {
+         int previousProduct = (listOne[i] * listTwo[i]);
+         arrayProduct = arrayProduct + previousProduct;
+      }
+
+      System.out.println(arrayProduct);
+
+   }
+}
