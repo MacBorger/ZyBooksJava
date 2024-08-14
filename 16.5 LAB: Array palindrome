@@ -1,0 +1,31 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+
+      int numberOfElements = userInput.nextInt();
+      int[] arrayOfElements = new int[numberOfElements];
+      int lengthOfArray = arrayOfElements.length;
+
+      boolean isPalindrome = true;
+
+      for (int i = 0; i < numberOfElements; i++) {
+         arrayOfElements[i] = userInput.nextInt();
+      }
+
+      for (int i = 0; i < lengthOfArray / 2; i++) {
+         if (arrayOfElements[i] != arrayOfElements[lengthOfArray - 1 - i]) {
+            isPalindrome = false;
+         }
+      }
+
+      if (isPalindrome) {
+         System.out.println("yes");
+      } else {
+         System.out.println("no");
+      }
+
+   }
+}
