@@ -1,0 +1,114 @@
+import java.util.*;
+import java.io.*;
+public class LabProgram {
+
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int size = userInput.nextInt();
+      String[] names = new String[size];
+      double[] debt = new double[size];
+      String[] states = new String[size];
+
+      readCustomerData(names, states, debt);
+
+      int debtLimit = userInput.nextInt();
+      String searchPhrase = userInput.next();
+      String stateAbbreviation = userInput.next();
+
+      double highestDebt = 0;
+      String customerWithHighestDebt = "";
+
+      for (int i = 0; i < debt.length; i++) {
+         if (debt[i] > highestDebt) {
+            highestDebt = debt[i];
+            customerWithHighestDebt = names[i];
+         }
+      }
+
+      System.out.println("U.S. Report");
+      System.out.println("Customers: " + size);
+      System.out.println("Highest debt: " + customerWithHighestDebt);
+
+      int nameCount = 0;
+
+      for (int i = 0; i < names.length; i++) {
+         if (names[i].startsWith(searchPhrase)) {
+            nameCount++;
+         }
+      }
+
+      System.out.println("Customer names that start with \"" + searchPhrase + "\": " + nameCount);
+
+      int countOverDebtLimit = 0;
+      int countDebtFree = 0;
+
+      for (int i = 0; i < debt.length; i++) {
+         if (debt[i] > debtLimit) {
+            countOverDebtLimit++;
+         }
+         if (debt[i] == 0) {
+            countDebtFree++;
+         }
+      }
+
+      System.out.println("Customers with debt over $" + debtLimit + ": " + countOverDebtLimit);
+      System.out.println("Customers debt free: " + countDebtFree);
+      System.out.println();
+
+      int stateCustomerCount = 0;
+      double stateHighestDebt = 0;
+      String stateCustomerWithHighestDebt = "";
+      int stateNameCount = 0;
+      int stateCountOverDebtLimit = 0;
+      int stateCountDebtFree = 0;
+
+    for (int i = 0; i < states.length; i++) {
+        if (states[i].equals(stateAbbreviation)) {
+            stateCustomerCount++;
+            if (debt[i] > stateHighestDebt) {
+                stateHighestDebt = debt[i];
+                stateCustomerWithHighestDebt = names[i];
+            }
+            if (names[i].startsWith(searchPhrase)) {
+                stateNameCount++;
+            }
+            if (debt[i] > debtLimit) {
+                stateCountOverDebtLimit++;
+            }
+            if (debt[i] == 0) {
+                stateCountDebtFree++;
+            }
+        }
+    }
+
+      System.out.println(stateAbbreviation + " Report");
+      System.out.println("Customers: " + stateCustomerCount);
+      System.out.println("Highest debt: " + stateCustomerWithHighestDebt);
+      System.out.println("Customer names that start with \"" + searchPhrase + "\": " + stateNameCount);
+      System.out.println("Customers with debt over $" + debtLimit + ": " + stateCountOverDebtLimit);
+      System.out.println("Customers debt free: " + stateCountDebtFree);
+   }
+
+
+
+   public static void readCustomerData(String [] names, String [] states, double [] debt) {
+           
+      try { 
+         File f = new File("CustomerNames.csv");
+         Scanner userInput = new Scanner(f);
+         userInput.useDelimiter("[, \r\n]+");
+            
+         for (int index = 0; index < names.length; ++index) {   
+            names[index] = userInput.next(); // last name
+            states[index] = userInput.next(); // state of residence
+            debt[index] = userInput.nextDouble(); // amount of debt  
+         }
+         userInput.close();
+      }
+
+      catch(IOException e) {
+         System.out.println("Failed to read the data file: ");
+      }
+   }
+}   
