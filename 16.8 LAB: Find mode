@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class LabProgram {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+        int[] arrayOfElements = new int[20];
+        int inputNumber = userInput.nextInt();
+        
+        int inputIndexNumber = 0;
+        
+        while (inputNumber != -1) {
+            arrayOfElements[inputIndexNumber] = inputNumber;
+            inputNumber = userInput.nextInt();
+            inputIndexNumber++;
+        }
+        
+        int arrayMode = -1;
+        int maximumCount = 0;
+        int numberOfElements = inputIndexNumber;
+        
+        // Loop Through Each Element of the Array 
+
+        for (int i = 0; i < numberOfElements; i++) {
+           
+            int currentCount = 0;
+            
+        // For Each Element, Compare to Every Other Element 
+      
+            for (int j = 0; j < numberOfElements; j++) {
+                if (arrayOfElements[j] == arrayOfElements[i]) {
+                    currentCount++;
+                }
+            }
+      
+        // If currentCount is Larger than Recorded Max, Update...
+            
+            if (currentCount > maximumCount) {
+                maximumCount = currentCount;
+                arrayMode = arrayOfElements[i];
+            }
+        }
+        
+        System.out.println(arrayMode);
+
+    }
+}
