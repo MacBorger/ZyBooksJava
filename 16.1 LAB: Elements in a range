@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int numberOfElements = userInput.nextInt();
+      int[] arrayOfElements = new int[numberOfElements];
+
+      for (int i = 0; i < numberOfElements; i++) {
+         arrayOfElements[i] = userInput.nextInt();
+      }
+
+      userInput.nextLine();
+
+      int lowerBound = userInput.nextInt();
+      int upperBound = userInput.nextInt();
+
+      for (int i = 0; i < arrayOfElements.length; i++) {
+         if ((arrayOfElements[i] >= lowerBound) && (arrayOfElements[i] <= upperBound)) {
+            System.out.print(arrayOfElements[i] + ",");
+         }
+      }
+
+      System.out.println();
+
+   }
+}
