@@ -1,0 +1,123 @@
+import java.util.Scanner;
+
+public class PlayerRoster {
+
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+
+        final int numberOfPlayers = 5;
+        int[] playerNumbers = new int[numberOfPlayers];
+        int[] playerRatings = new int[numberOfPlayers];
+
+        inputPlayerDetails(userInput, playerNumbers, playerRatings);
+
+        char userMenuChoice;
+
+        do {
+           
+            displayMenu();
+
+            userMenuChoice = userInput.next().charAt(0);
+
+            switch (userMenuChoice) {
+                case 'u':
+                    updatePlayerRating(userInput, playerNumbers, playerRatings);
+                    break;
+                case 'a':
+                    outputPlayersAboveRating(userInput, playerNumbers, playerRatings);
+                    break;
+                case 'r':
+                    replacePlayer(userInput, playerNumbers, playerRatings);
+                    break;
+                case 'o':
+                    outputRoster(playerNumbers, playerRatings, numberOfPlayers);
+                    break;
+            }
+
+            System.out.println();
+
+        } while (userMenuChoice != 'q');
+    }
+
+    public static void inputPlayerDetails(Scanner userInput, int[] playerNumbers, int[] playerRatings) {
+        for (int i = 0; i < playerNumbers.length; i++) {
+            System.out.println("Enter player " + (i + 1) + "'s jersey number:");
+            playerNumbers[i] = userInput.nextInt();
+
+            System.out.println("Enter player " + (i + 1) + "'s rating:");
+            playerRatings[i] = userInput.nextInt();
+
+            System.out.println();
+        }
+        outputRoster(playerNumbers, playerRatings, playerNumbers.length);
+        System.out.println();
+    }
+
+    public static void displayMenu() {
+        System.out.println("MENU");
+        System.out.println("u - Update player rating");
+        System.out.println("a - Output players above a rating");
+        System.out.println("r - Replace player");
+        System.out.println("o - Output roster");
+        System.out.println("q - Quit");
+        System.out.println();
+        System.out.print("Choose an option:");
+    }
+
+    public static void outputRoster(int[] playerNumbers, int[] playerRatings, int numberOfPlayers) {
+        System.out.println("ROSTER");
+        for (int i = 0; i < numberOfPlayers; i++) {
+            System.out.println("Player " + (i + 1) + " -- Jersey number: " + playerNumbers[i] + ", Rating: " + playerRatings[i]);
+        }
+    }
+
+    public static void updatePlayerRating(Scanner userInput, int[] playerNumbers, int[] playerRatings) {
+        System.out.print("Enter a jersey number: ");
+        int jerseyNumberToUpdate = userInput.nextInt();
+        boolean found = false;
+        for (int i = 0; i < playerNumbers.length; i++) {
+            if (playerNumbers[i] == jerseyNumberToUpdate) {
+                System.out.print("Enter a new rating for player: ");
+                playerRatings[i] = userInput.nextInt();
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Player with jersey number " + jerseyNumberToUpdate + " not found.");
+        }
+    }
+
+    public static void outputPlayersAboveRating(Scanner userInput, int[] playerNumbers, int[] playerRatings) {
+        System.out.print("Enter a rating: ");
+        int ratingThreshold = userInput.nextInt();
+        System.out.println("\nABOVE " + ratingThreshold);
+        for (int i = 0; i < playerNumbers.length; i++) {
+            if (playerRatings[i] > ratingThreshold) {
+                System.out.println("Player " + (i + 1) + " -- Jersey number: " + playerNumbers[i] + ", Rating: " + playerRatings[i]);
+            }
+        }
+    }
+
+    public static void replacePlayer(Scanner userInput, int[] playerNumbers, int[] playerRatings) {
+        System.out.print("Enter a jersey number: ");
+        int jerseyNumberToReplace = userInput.nextInt();
+        boolean found = false;
+        for (int i = 0; i < playerNumbers.length; i++) {
+            if (playerNumbers[i] == jerseyNumberToReplace) {
+                System.out.print("Enter a new jersey number: ");
+                int newJerseyNumber = userInput.nextInt();
+                System.out.print("Enter a rating for the new player: ");
+                int newRating = userInput.nextInt();
+                playerNumbers[i] = newJerseyNumber;
+                playerRatings[i] = newRating;
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Player with jersey number " + jerseyNumberToReplace + " not found.");
+        }
+    }
+}
