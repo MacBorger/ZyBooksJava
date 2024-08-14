@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class LabProgram {
+    public static void main(String[] args) {
+
+        Scanner userInput = new Scanner(System.in);
+        
+        int[] arrayOfValues = new int[20];
+        int numberOfValues = 0;
+        int desiredIndex = 0;
+        
+        while (true) {
+            int userValue = userInput.nextInt();
+            if (userValue < 0) {
+                desiredIndex = -userValue;
+                break;
+            }
+            arrayOfValues[numberOfValues] = userValue;
+            numberOfValues++;
+        }
+        
+        int finalIndex = numberOfValues - desiredIndex;
+        
+        if (finalIndex < 0) {
+            System.out.println(-desiredIndex);
+        } else {
+            System.out.println(arrayOfValues[finalIndex]);
+        }
+    }
+}
