@@ -1,0 +1,28 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int numberOfIntegers = userInput.nextInt();
+      int[] arrayOfIntegers = new int[numberOfIntegers];
+
+      userInput.nextLine();
+
+      for (int i = 0; i < numberOfIntegers; i++) {
+         arrayOfIntegers[i] = userInput.nextInt();
+      }
+
+      int temporaryIndex = arrayOfIntegers[0];
+
+      arrayOfIntegers[0] = arrayOfIntegers[numberOfIntegers - 1];
+      arrayOfIntegers[numberOfIntegers - 1] = temporaryIndex;
+
+      for (int i = 0; i < arrayOfIntegers.length; i++) {
+         System.out.print(arrayOfIntegers[i] + " ");
+      }
+      
+      System.out.println();
+
+   }
+}
