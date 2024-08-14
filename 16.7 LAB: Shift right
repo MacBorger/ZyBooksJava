@@ -1,0 +1,32 @@
+import java.util.Scanner; 
+
+public class LabProgram {
+   public static void main(String[] args) {
+
+      Scanner userInput = new Scanner(System.in);
+      int numberOfElements = userInput.nextInt();
+      int[] arrayOfElements = new int[numberOfElements];
+
+      for (int i = 0; i < numberOfElements; i++) {
+         arrayOfElements[i] = userInput.nextInt();
+      }
+
+      int lastElement = arrayOfElements[numberOfElements - 1];
+
+      // This Instatiation of "i" Makes the For-Loop Iterate of the Indicies from Right to Left...
+      // ...And, "arrayOfElements[i - 1]" is Exactly One Index to the Left of the Current Iteration
+
+      for (int i = numberOfElements - 1; i > 0; i--) {
+         arrayOfElements[i] = arrayOfElements[i - 1];
+      }
+
+      arrayOfElements[0] = lastElement;
+
+      for (int i = 0; i < arrayOfElements.length; i++) {
+         System.out.print(arrayOfElements[i] + " ");
+      }
+
+      System.out.println();
+
+   }
+}
